@@ -12,7 +12,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "lint": "eslint --fix --ext .ts,.vue src",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\""
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
+    "prepare": "husky install"
   },
   "author": "saiyanjing",
   "license": "ISC",
@@ -22,6 +23,8 @@
     "@vitejs/plugin-vue-jsx": "2.0.0",
     "@vue/test-utils": "2.0.2",
     "happy-dom": "6.0.4",
+    "husky": "^8.0.0",
+    "pre-commit": "^1.2.2",
     "typescript": "^4.7.4",
     "vite": "3.0.7",
     "vitepress": "0.22.4",
