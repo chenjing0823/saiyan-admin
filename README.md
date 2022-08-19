@@ -1,5 +1,9 @@
-## 说明
-[基于 Vite 的组件库工程化实战](https://juejin.cn/book/7117582869358182403/section/7129382953326477352) 随课代码
+<h1 align="center">Smarty-ui-vite</h1>
+
+<p align="center">
+  <a href="https://github.com/chenjing0823/samrty-ui-vite/actions/workflows/main.yml"><img src="https://github.com/chenjing0823/samrty-ui-vite/actions/workflows/main.yml/badge.svg?branch=main" alt="CI" style="max-width: 100%"></img>
+  </a>
+</p>
 
 ## 开始
 ```
