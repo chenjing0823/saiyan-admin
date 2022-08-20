@@ -1,5 +1,5 @@
 {
-  "name": "saiyan-ui",
+  "name": "acwink-test-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,43 +11,48 @@
     "docs:serve": "vitepress serve docs",
     "test": "vitest",
     "test:run": "vitest run",
-    "lint": "eslint --fix --ext .ts,.vue src",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
-    "prepare": "husky install"
+    "lint": "eslint --fix --ext  .ts,.vue,.tsx src",
+    "format": "prettier --write .",
+    "prepare": "husky install",
+    "commit": "npx cz"
   },
-  "author": "saiyanjing",
+  "keywords": [],
+  "author": "acwink",
   "license": "ISC",
-  "devDependencies": {
-    "@iconify-json/ic": "^1.1.9",
-    "@vitejs/plugin-vue": "3.0.3",
-    "@vitejs/plugin-vue-jsx": "2.0.0",
-    "@vue/test-utils": "2.0.2",
-    "happy-dom": "6.0.4",
-    "husky": "^8.0.0",
-    "pre-commit": "^1.2.2",
-    "rollup-plugin-copy": "^3.4.0",
-    "terser": "5.4.0",
-    "typescript": "^4.7.4",
-    "vite": "3.0.7",
-    "vitepress": "0.22.4",
-    "vitepress-theme-demoblock": "1.4.2",
-    "vitest": "0.21.1"
-  },
   "dependencies": {
-    "@commitlint/cli": "17.0.2",
-    "@commitlint/config-conventional": "17.0.2",
-    "@testing-library/vue": "^6.6.1",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@babel/eslint-parser": "^7.18.9",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
+    "@vitejs/plugin-vue": "^3.0.1",
+    "@vitejs/plugin-vue-jsx": "^2.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.22.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.21.0",
     "eslint-formatter-pretty": "^4.1.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",
-    "unocss": "0.45.6",
-    "vue": "3.2.37"
+    "typescript": "^4.7.4",
+    "vite": "^3.0.5",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@iconify-json/ic": "^1.1.8",
+    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/test-utils": "^2.0.2",
+    "commitizen": "^4.2.5",
+    "happy-dom": "^6.0.4",
+    "husky": "^7.0.0",
+    "unocss": "^0.45.6",
+    "vitepress": "^1.0.0-alpha.4",
+    "vitest": "^0.21.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
