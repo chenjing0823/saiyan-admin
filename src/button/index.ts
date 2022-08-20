@@ -1,3 +1,3 @@
-import ACButton from "./ACButton";
+import Button from "./Button";
 
-export default ACButton;
+export default Button;
