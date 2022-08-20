@@ -1,17 +1,12 @@
 import { App } from "vue";
-import MyButton from "./button";
-import SFCButton from "./SFCButton.vue";
-import JSXButton from "./JSXButton";
+import ACButton from "./button";
 
-// 导出单独组件
-export { MyButton, SFCButton, JSXButton };
+// 单独导出组件
+export { ACButton };
 
-// 编写一个插件，实现一个install方法
-
+// 插件导出
 export default {
-  install(app: App): void {
-    app.component(MyButton.name, MyButton);
-    app.component(SFCButton.name, SFCButton);
-    app.component(JSXButton.name, JSXButton);
+  install(app: App) {
+    app.component(ACButton.name, ACButton);
   },
 };

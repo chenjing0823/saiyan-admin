@@ -1,20 +1,7 @@
-<h1 align="center">Smarty-ui-vite</h1>
-
+<p>前端工程化教学</p>
+<p>
 <p align="center">
-  <a href="https://github.com/chenjing0823/samrty-ui-vite/actions/workflows/main.yml"><img src="https://github.com/chenjing0823/samrty-ui-vite/actions/workflows/main.yml/badge.svg?branch=main" alt="CI" style="max-width: 100%"></img>
+  <a href="https://github.com/acwink/SmartyAdmin/actions/workflows/main.yml">
+    <img src="https://github.com/acwink/SmartyAdmin/actions/workflows/main.yml/badge.svg?branch=main" alt="">
   </a>
 </p>
-
-## 开始
-```
-pnpm install
-```
-## dev
-```
-pnpm run dev
-```
-
-## build
-```
-pnpm run build
-```
