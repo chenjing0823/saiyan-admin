@@ -16,7 +16,7 @@
     "prepare": "husky install"
   },
   "author": "saiyanjing",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@iconify-json/ic": "^1.1.9",
     "@vitejs/plugin-vue": "3.0.3",

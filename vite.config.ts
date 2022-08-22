@@ -26,10 +26,8 @@ export default defineConfig({
 
     copy({
       targets: [
-        {
-          src: "package.json",
-          dest: "dist",
-        },
+        { src: "package.json", dest: "dist" },
+        { src: "README.md", dest: "dist" },
       ],
       hook: "writeBundle",
     }),
