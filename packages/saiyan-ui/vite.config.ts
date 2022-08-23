@@ -41,8 +41,8 @@ export const config = {
     reportCompressedSize: true, // 生成压缩大小报告
     lib: {
       entry: "./src/entry.ts",
-      name: "SmartyUI",
-      fileName: "smarty-ui",
+      name: "SaiyanUI",
+      fileName: "saiyan-ui",
       // 导出模块格式
       formats: ["es", "umd", "iife"],
     },

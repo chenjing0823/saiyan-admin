@@ -6,7 +6,7 @@ import { createApp } from "vue/dist/vue.esm-browser";
 
 // createApp(SButton).mount("#app");
 // createApp(JSXButton).mount("#app");
-import SmartyUI from './entry'
+import SaiyanUI from './entry'
 
 createApp({
   template:`
@@ -46,5 +46,5 @@ createApp({
 </div>
   `
 })
-.use(SmartyUI)
+.use(SaiyanUI)
 .mount("#app");
