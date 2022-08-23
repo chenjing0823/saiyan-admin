@@ -8,15 +8,6 @@ import Unocss from "./config/unocss";
 import copy from "rollup-plugin-copy";
 // https://vitejs.dev/config/
 
-const rollupOptions = {
-  external: ["vue", "vue-router"],
-  output: {
-    globals: {
-      vue: "Vue",
-    },
-  },
-};
-
 export default defineConfig({
   plugins: [
     vue(),
@@ -34,18 +25,26 @@ export default defineConfig({
   ],
 
   build: {
-    rollupOptions,
+    rollupOptions: {
+      external: ["vue", "vue-router"],
+      output: {
+        assetFileNames: "[name].[ext]",
+        globals: {
+          vue: "Vue",
+        },
+      },
+    },
+    cssCodeSplit: true,
     minify: "terser", // boolean | 'terser' | 'esbuild'
     sourcemap: true, // 输出单独 source文件
-    brotliSize: true, // 生成压缩大小报告
+    reportCompressedSize: true, // 生成压缩大小报告
     lib: {
       entry: "./src/entry.ts",
       name: "SmartyUI",
       fileName: "smarty-ui",
       // 导出模块格式
-      formats: ["esm", "umd", "iife"],
+      formats: ["es", "umd", "iife"],
     },
-    cssCodeSplit: true,
   },
 
   test: {
