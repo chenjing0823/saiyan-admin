@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "pnpm build:components",
+    "build:all": "vite build",
+    "build:components": "esno ./scripts/build.ts",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
@@ -21,6 +23,7 @@
     "@vitejs/plugin-vue": "3.0.3",
     "@vitejs/plugin-vue-jsx": "2.0.0",
     "@vue/test-utils": "2.0.2",
+    "esno": "^0.16.3",
     "happy-dom": "6.0.4",
     "pre-commit": "^1.2.2",
     "rollup-plugin-copy": "^3.4.0",
@@ -44,6 +47,8 @@
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0",
+    "execa": "^6.1.0",
+    "fs-extra": "^10.1.0",
     "prettier": "^2.7.1",
     "unocss": "0.45.6",
     "vue": "3.2.37"

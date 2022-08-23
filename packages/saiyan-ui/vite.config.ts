@@ -1,27 +1,27 @@
 /// <reference types="vitest" />
-import { defineConfig } from "vite";
+import { defineConfig, UserConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 // import Unocss from "unocss/vite";
 import Unocss from "./config/unocss";
 
-import copy from "rollup-plugin-copy";
+// import copy from "rollup-plugin-copy";
 // https://vitejs.dev/config/
 
-export default defineConfig({
+export const config = {
   plugins: [
     vue(),
     vueJsx(),
     // 添加UnoCSS插件
     Unocss(),
 
-    copy({
-      targets: [
-        { src: "package.json", dest: "dist" },
-        { src: "README.md", dest: "dist" },
-      ],
-      hook: "writeBundle",
-    }),
+    // copy({
+    //   targets: [
+    //     { src: "package.json", dest: "dist" },
+    //     { src: "README.md", dest: "dist" },
+    //   ],
+    //   hook: "writeBundle",
+    // }),
   ],
 
   build: {
@@ -29,6 +29,7 @@ export default defineConfig({
       external: ["vue", "vue-router"],
       output: {
         assetFileNames: "[name].[ext]",
+        exports: "named",
         globals: {
           vue: "Vue",
         },
@@ -45,6 +46,7 @@ export default defineConfig({
       // 导出模块格式
       formats: ["es", "umd", "iife"],
     },
+    outDir: "./dist",
   },
 
   test: {
@@ -58,4 +60,6 @@ export default defineConfig({
       web: [/.[tj]sx$/],
     },
   },
-});
+} as UserConfig;
+
+export default defineConfig(config as UserConfig);
