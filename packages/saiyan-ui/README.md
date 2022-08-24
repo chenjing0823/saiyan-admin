@@ -1,4 +1,4 @@
-<h1 align="center">Smarty-ui-vite</h1>
+<h1 align="center">Saiyan-UI</h1>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/saiyan-ui"><img src="https://img.shields.io/npm/v/saiyan-ui?color=c95f8b&amp;label=" alt="NPM version"></a></p>
