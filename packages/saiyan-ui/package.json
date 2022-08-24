@@ -5,6 +5,7 @@
   "main": "index.js",
   "homepage": "https://saiyan-ui.vercel.app/",
   "scripts": {
+    "coverage": "vitest run --coverage",
     "dev": "vite",
     "build": "pnpm build:components",
     "build:all": "vite build",
@@ -24,6 +25,7 @@
     "@vitejs/plugin-vue": "3.0.3",
     "@vitejs/plugin-vue-jsx": "2.0.0",
     "@vue/test-utils": "2.0.2",
+    "c8": "^7.12.0",
     "esno": "^0.16.3",
     "happy-dom": "6.0.4",
     "pre-commit": "^1.2.2",
