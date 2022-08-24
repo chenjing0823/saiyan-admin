@@ -2,7 +2,7 @@ import * as fs from "fs-extra";
 import * as path from "path";
 import { config } from "../vite.config";
 import { build, InlineConfig, defineConfig, UserConfig } from "vite";
-import { execa } from "execa";
+// import { execa } from "execa";
 const buildAll = async () => {
   // const inline: InlineConfig =
   //   viteConfig;
@@ -11,8 +11,8 @@ const buildAll = async () => {
   await build(defineConfig(config as UserConfig) as InlineConfig);
   // await build(defineConfig({}))
 
-  const files = ["package.json", "README.md"];
-  await Promise.all(files.map((file) => execa("cp", [file, "./dist"])));
+  // const files = ["package.json", "README.md"];
+  // await Promise.all(files.map((file) => execa("cp", [file, "./dist"])));
 
   const srcDir = path.resolve(__dirname, "../src/");
   fs.readdirSync(srcDir)

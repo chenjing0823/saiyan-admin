@@ -1,8 +1,8 @@
 {
   "name": "saiyan-ui",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/saiyan-ui.esm.js",
   "homepage": "https://saiyan-ui.vercel.app/",
   "scripts": {
     "coverage": "vitest run --coverage",

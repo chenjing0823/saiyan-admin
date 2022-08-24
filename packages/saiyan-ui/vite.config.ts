@@ -44,7 +44,7 @@ export const config = {
       name: "SaiyanUI",
       fileName: "saiyan-ui",
       // 导出模块格式
-      formats: ["es", "umd", "iife"],
+      formats: ["esm", "umd", "iife"],
     },
     outDir: "./dist",
   },
