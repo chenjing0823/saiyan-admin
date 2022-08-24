@@ -6,10 +6,10 @@ import { createApp } from "vue/dist/vue.esm-browser";
 
 // createApp(SButton).mount("#app");
 // createApp(JSXButton).mount("#app");
-import SaiyanUI from './entry'
+import SaiyanUI from "./entry";
 
 createApp({
-  template:`
+  template: `
   <div style="margin-bottom:20px;">
   <SButton color="blue">主要按钮</SButton>
   <SButton color="green">绿色按钮</SButton>
@@ -24,6 +24,21 @@ createApp({
   <SButton color="gray" plain>灰色按钮</SButton>
   <SButton color="yellow" plain>黄色按钮</SButton>
   <SButton color="red" plain>红色按钮</SButton>
+</div>
+  <div style="margin-bottom:20px;">
+  <SButton color="blue" disabled>主要按钮</SButton>
+  <SButton color="green" disabled>绿色按钮</SButton>
+  <SButton color="gray" disabled>灰色按钮</SButton>
+  <SButton color="yellow" disabled>黄色按钮</SButton>
+  <SButton color="red" disabled>红色按钮</SButton>
+</div>
+<div style="margin-bottom:20px;"
+>
+  <SButton color="blue" plain disabled>朴素按钮</SButton>
+  <SButton color="green" plain disabled>绿色按钮</SButton>
+  <SButton color="gray" plain disabled>灰色按钮</SButton>
+  <SButton color="yellow" plain disabled>黄色按钮</SButton>
+  <SButton color="red" plain disabled>红色按钮</SButton>
 </div>
 <div style="margin-bottom:20px;">
   <SButton size="small" plain>小按钮</SButton>
@@ -44,7 +59,7 @@ createApp({
   <SButton color="yellow" round plain icon="message"></SButton>
   <SButton color="red" round plain icon="delete"></SButton>
 </div>
-  `
+  `,
 })
-.use(SaiyanUI)
-.mount("#app");
+  .use(SaiyanUI)
+  .mount("#app");

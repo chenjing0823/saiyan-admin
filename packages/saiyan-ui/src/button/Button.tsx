@@ -39,6 +39,11 @@ export const props = {
     type: String,
     default: "",
   },
+
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 } as const;
 
 export default defineComponent({
@@ -65,22 +70,36 @@ export default defineComponent({
       },
     };
 
+    const click = () => {
+      console.log(111)
+    }
+
     return () => (
       <button
         class={`
           py-${size[props.size].y}
           px-${size[props.size].x}
           ${props.round ? "rounded-full" : "rounded-lg"}
-          bg-${props.color}-${props.plain ? "100" : "500"}
-          hover:bg-${props.color}-400
-          border-${props.color}-${props.plain ? "200" : "500"}
-          cursor-pointer
           border-solid
-          text-${props.plain ? props.color + "-500" : "white"}
           text-${size[props.size].text}
-          hover:text-white
           mx-1
+          ${!props.disabled
+            ? `
+            bg-${props.color}-${props.plain ? "100" : "500"}
+            hover:bg-${props.color}-400
+            border-${props.color}-${props.plain ? "100" : "500"}
+            text-${props.plain ? props.color + "-500" : "white"}
+            cursor-pointer
+            hover:text-white`
+            : `
+            bg-${props.color}-${props.plain ? "50" : "200"}
+            text-${props.plain ? props.color + "-300" : "white"}
+            border-${props.color}-${props.plain ? "100" : "200"}
+            `
+          }
           `}
+          disabled={ props.disabled }
+          onClick={ click }
       >
         {props.icon !== "" ? (
           <i class={`i-ic-baseline-${props.icon} p-3`}></i>
