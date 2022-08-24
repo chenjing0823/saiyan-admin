@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, defineEmits } from "vue";
 import "uno.css";
 
 export type ISize = "small" | "medium" | "large";
@@ -49,8 +49,11 @@ export const props = {
 export default defineComponent({
   name: "SButton",
   props,
-  setup(props, { slots }) {
+  emits: ['click'],
+  setup(props, ctx) {
+    const { slots } = ctx
     // console.log(`html`, document.querySelector(`#app`)?.innerHTML);
+
 
     const size = {
       small: {
@@ -70,8 +73,8 @@ export default defineComponent({
       },
     };
 
-    const click = () => {
-      console.log(111)
+    const handleClick = (e) => {
+      ctx.emit('click', e)
     }
 
     return () => (
@@ -100,7 +103,7 @@ export default defineComponent({
           }
           `}
           disabled={ props.disabled }
-          onClick={ click }
+          onClick={ handleClick }
       >
         {props.icon !== "" ? (
           <i class={`i-ic-baseline-${props.icon} p-3`}></i>
