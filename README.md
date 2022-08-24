@@ -11,6 +11,22 @@
 # HomePage
 https://saiyan-ui.vercel.app/
 
+# 依赖安装
+```
+pnpm install
+```
+
+# UI项目启动
+在package/saiyan-ui 目录下
+```
+pnpm dev
+```
+
+# UI项目打包
+```
+pnpm build
+```
+
 # Saiyan-UI 是什么
 一个Mini版的组件库，基于Vite栈。
 ## Features
