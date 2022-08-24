@@ -51,17 +51,17 @@ export default defineComponent({
       small: {
         x: "2",
         y: "1",
-        text: "sm",
+        text: "xs",
       },
       medium: {
         x: "3",
         y: "1.5",
-        text: "base",
+        text: "sm",
       },
       large: {
         x: "4",
         y: "2",
-        text: "lg",
+        text: "base",
       },
     };
 
@@ -73,13 +73,12 @@ export default defineComponent({
           ${props.round ? "rounded-full" : "rounded-lg"}
           bg-${props.color}-${props.plain ? "100" : "500"}
           hover:bg-${props.color}-400
-          border-${props.color}-${props.plain ? "500" : "500"}
+          border-${props.color}-${props.plain ? "200" : "500"}
           cursor-pointer
           border-solid
           text-${props.plain ? props.color + "-500" : "white"}
           text-${size[props.size].text}
           hover:text-white
-          transition duration-300 ease-in-out transform hover:scale-105
           mx-1
           `}
       >
