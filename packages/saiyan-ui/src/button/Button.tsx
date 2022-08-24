@@ -95,6 +95,7 @@ export default defineComponent({
             bg-${props.color}-${props.plain ? "50" : "200"}
             text-${props.plain ? props.color + "-300" : "white"}
             border-${props.color}-${props.plain ? "100" : "200"}
+            cursor-not-allowed
             `
           }
           `}

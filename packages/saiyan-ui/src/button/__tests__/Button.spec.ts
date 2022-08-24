@@ -139,4 +139,40 @@ describe("Button", () => {
         .includes("i-ic-baseline-edit")
     ).toBe(true);
   });
+
+  test("disabled", () => {
+    const wrapper = shallowMount(Button, {
+      slots: {
+        default: "Button",
+      },
+      props: {
+        disabled: false,
+      },
+    });
+
+    expect(
+      wrapper
+        .classes()
+        .map((v) => v.replace("\n", ""))
+        .includes("cursor-pointer")
+    ).toBe(true);
+  });
+
+  test("disabled:true", () => {
+    const wrapper = shallowMount(Button, {
+      slots: {
+        default: "Button",
+      },
+      props: {
+        disabled: true,
+      },
+    });
+
+    expect(
+      wrapper
+        .classes()
+        .map((v) => v.replace("\n", ""))
+        .includes("cursor-not-allowed")
+    ).toBe(true);
+  });
 });
