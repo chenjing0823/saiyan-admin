@@ -94,12 +94,6 @@
 
 ```vue
 <template>
-  <div class="flex flex-row">
-    <SButton plain>默认尺寸</SButton>
-    <SButton size="small" plain>小按钮</SButton>
-    <SButton size="medium" plain>中按钮</SButton>
-    <SButton size="large" plain>大按钮</SButton>
-  </div>
   <div style="margin-bottom:20px;">
     <SButton plain>默认尺寸</SButton>
     <SButton size="small" plain>小按钮</SButton>
