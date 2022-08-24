@@ -8,7 +8,6 @@
 - ⚙️ Unit Testing with Vitest
 - 😃 Eslint + Prittier
 - 🎨 UnoCSS - the instant on-demand atomic CSS engine
-- 🌍 I18n ready
 - 🚘 CI/CD with GithubActions
 
 ## 安装
