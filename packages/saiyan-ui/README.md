@@ -33,13 +33,16 @@ npm i saiyan-ui
 在 main.js 写入以下内容
 
 ```js
-    import Vue from 'vue'
-    import SaiyanUI from 'saiyan-ui'
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
+import SaiyanUI from 'saiyan-ui'
+import 'saiyan-ui/dist/entry.css'
 
+createApp(App)
+  .use(SaiyanUI)
+  .mount('#app')
 
-    createApp(App)
-        .use(SaiyanUI)
-        .mount("#app");
 
 ```
 ## 开始使用

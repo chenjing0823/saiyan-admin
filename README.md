@@ -3,9 +3,9 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/saiyan-ui"><img src="https://img.shields.io/npm/v/saiyan-ui?color=c95f8b&amp;label=" alt="NPM version"></a></p>
 
-
-  ![MIT](https://github.com/chenjing0823/samrty-ui-vite/actions/workflows/main.yml/badge.svg?branch=main)
   ![MIT](https://img.shields.io/github/license/chenjing0823/saiyan-ui)
+  [![CI](https://github.com/chenjing0823/samrty-ui-vite/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/chenjing0823/samrty-ui-vite/actions/workflows/main.yml)
+  [![codecov](https://codecov.io/gh/chenjing0823/saiyan-admin/branch/main/graph/badge.svg?token=H4VO63H0MZ)](https://codecov.io/gh/chenjing0823/saiyan-admin)
 </p>
 
 # HomePage
@@ -33,13 +33,16 @@ npm i saiyan-ui
 在 main.js 写入以下内容
 
 ```js
-    import Vue from 'vue'
-    import SaiyanUI from 'saiyan-ui'
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
+import SaiyanUI from 'saiyan-ui'
+import 'saiyan-ui/dist/entry.css'
 
+createApp(App)
+  .use(SaiyanUI)
+  .mount('#app')
 
-    createApp(App)
-        .use(SaiyanUI)
-        .mount("#app");
 
 ```
 ## 开始使用
