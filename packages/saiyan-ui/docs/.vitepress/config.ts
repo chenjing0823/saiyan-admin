@@ -5,6 +5,7 @@ const sidebar = {
     text: '组件',
     children: [
       { text: 'Button 按钮', link: '/components/button/' },
+      { text: 'Input 输入框', link: '/components/input/' },
      ]
     }
    ]

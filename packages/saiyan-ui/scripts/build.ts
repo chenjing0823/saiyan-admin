@@ -40,8 +40,8 @@ const buildAll = async () => {
         outDir,
       };
 
-      Object.assign(config.build, custom);
-      await build(defineConfig(config as UserConfig) as InlineConfig);
+      const _config = Object.assign({}, config, { build: custom });
+      await build(defineConfig(_config as UserConfig) as InlineConfig);
 
       // 为每个子组件包定制一个自己的 package.json
       fs.outputFile(

@@ -1,5 +1,5 @@
 import { defineComponent, PropType, defineEmits } from "vue";
-import "uno.css";
+// import "uno.css";
 
 export type ISize = "small" | "medium" | "large";
 export type IColor =

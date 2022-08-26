@@ -1,3 +1,4 @@
+import { ref } from "vue";
 import { createApp } from "vue/dist/vue.esm-browser";
 
 // import SButton from "./button";
@@ -14,13 +15,18 @@ createApp({
       console.log("index");
       console.log(e);
     };
+    let input = ref<string>("87h");
     return {
       myclick,
+      input,
     };
   },
   template: `
   <div style="margin-bottom:20px;">
-  <SButton color="blue" @click=myclick>主要按钮</SButton>
+    <SButton color="blue" @click=myclick>主要按钮</SButton>
+    <SInput v-model="input"></SInput>
+    <SInput disabled></SInput>
+  </div>
   `,
 })
   .use(SaiyanUI)
