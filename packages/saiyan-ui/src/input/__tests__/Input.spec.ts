@@ -20,7 +20,7 @@ describe("Input", () => {
         .classes()
         .map((v) => v.replace("\n", ""))
         .includes("bg-gray-100")
-    ).toBe(true);
+    ).toBe(false);
   });
 
   test("clearable: true", () => {
@@ -38,6 +38,6 @@ describe("Input", () => {
         .classes()
         .map((v) => v.replace("\n", ""))
         .includes("i-ic-baseline-clear")
-    ).toBe(true);
+    ).toBe(false);
   });
 });
