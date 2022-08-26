@@ -12,12 +12,12 @@
  </div>
 </template>
 
-<script lang="ts" setup>
+// <script lang="ts" setup>
 
-import { ref } from "vue"
-const input = ref('')
+// import { ref } from "vue"
+// const input = ref('')
 
-</script>
+// </script>
 ```
 :::
 ## 禁用状态
@@ -33,12 +33,12 @@ const input = ref('')
  </div>
 </template>
 
-<script lang="ts" setup>
+// <script lang="ts" setup>
 
-import { ref } from "vue"
-const input = ref('')
+// import { ref } from "vue"
+// const input = ref('')
 
-</script>
+// </script>
 ```
 :::
 
@@ -54,11 +54,11 @@ const input = ref('')
  </div>
 </template>
 
-<script lang="ts" setup>
+// <script lang="ts" setup>
 
-import { ref } from "vue"
-const input = ref('')
+// import { ref } from "vue"
+// const input = ref('')
 
-</script>
+// </script>
 ```
 :::
