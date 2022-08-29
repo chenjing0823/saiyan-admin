@@ -18,6 +18,7 @@ const safelist = [
   ...widths.map((v) => `w-${v}`),
   ...Array.from({ length: 8 }, (_, i) => `px-${i + 1}`),
   ...Array.from({ length: 8 }, (_, i) => `py-${i + 1}`),
+  ...Array.from({ length: 8 }, (_, i) => `p-t-${i + 1}`),
   ...Array.from({ length: 8 }, (_, i) => `px-${i + 0.5}`),
   ...Array.from({ length: 8 }, (_, i) => `py-${i + 0.5}`),
   ...Array.from({ length: 8 }, (_, i) => `h-${i + 1}`),

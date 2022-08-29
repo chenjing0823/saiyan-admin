@@ -1,6 +1,10 @@
 <template>
   <div>测试</div>
-  <SInput v-model="input" clearable></SInput>
+  <s-button color="pink">红色按钮</s-button>
+  <s-input v-model="input" clearable></s-input>
+  <s-input v-model="input" size="mini" clearable></s-input>
+  <s-input v-model="input" size="small" clearable></s-input>
+  <s-input v-model="input" size="medium" clearable></s-input>
   {{ input }}
 </template>
 

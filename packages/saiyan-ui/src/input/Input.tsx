@@ -1,7 +1,7 @@
 import { defineComponent,ref, computed, PropType, defineEmits } from "vue";
 // import "uno.css";
 
-
+export type ISize = "small" | "medium" | "large";
 export type TargetElement = HTMLInputElement | HTMLTextAreaElement
 
 
@@ -21,6 +21,10 @@ export const props = {
   clearable: {
     type: Boolean,
     default: false
+  },
+  size: {
+    type: String as PropType<ISize>,
+    default: 'large'
   }
 
 } as const;
@@ -30,6 +34,26 @@ export default defineComponent({
   props,
   emits: ['change', 'input', 'focus', 'focusout', 'mousein', 'mouseout', 'update:modelValue'],
   setup(props, ctx) {
+
+    const size = {
+      small: {
+        y: "1",
+        t: "0.16rem",
+      },
+      medium: {
+        y: "2",
+        t: "0.33rem",
+      },
+      large: {
+        y: "3",
+        t: "0.5rem",
+      },
+      mini: {
+        y: "0",
+        t: "0rem",
+      },
+    };
+
     const focus = ref<Boolean>(false)
     const mouse = ref<Boolean>(false)
 
@@ -85,8 +109,8 @@ export default defineComponent({
         <input
           class={`
             w-xs
+            py-${size[props.size].y}
             px-3
-            h-8
             border-1
             border-gray
             rounded-lg
@@ -108,7 +132,7 @@ export default defineComponent({
         </input>
         {showClear.value
           ? <span class={`py-1 cursor-pointer`}
-            style="position: absolute;right: 5px;top: 0;height: 100%"
+            style={`position: absolute;right: 5px;top: 0;height: 100%;padding-top: ${size[props.size].t}`}
             onMousedown= {handleClear}>
               <i class={`i-ic-baseline-clear px-3 color-gray-500`}></i>
             </span>
