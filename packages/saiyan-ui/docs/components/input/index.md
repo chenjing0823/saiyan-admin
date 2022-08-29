@@ -13,10 +13,6 @@
 </template>
 
 <script>
-// <script lang="ts" setup>
-
-// import { ref } from "vue"
-// const input = ref('')
 
 export default {
   data () {
@@ -26,7 +22,7 @@ export default {
   }
 }
 
-// </script>
+</script>
 ```
 :::
 ## 禁用状态
@@ -43,11 +39,6 @@ export default {
 </template>
 
 <script>
-// <script lang="ts" setup>
-
-// import { ref } from "vue"
-// const input = ref('')
-
 export default {
   data () {
     return {
@@ -56,7 +47,7 @@ export default {
   }
 }
 
-// </script>
+</script>
 ```
 :::
 
@@ -73,10 +64,6 @@ export default {
 </template>
 
 <script>
-// <script lang="ts" setup>
-
-// import { ref } from "vue"
-// const input = ref('')
 
 export default {
   data () {
@@ -85,7 +72,6 @@ export default {
     }
   }
 }
-
-// </script>
+</script>
 ```
 :::
