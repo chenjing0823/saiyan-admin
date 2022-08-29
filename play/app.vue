@@ -1,6 +1,6 @@
 <template>
   <div>测试</div>
-  <SInput v-model="input" clear></SInput>
+  <SInput v-model="input" clearable></SInput>
   {{ input }}
 </template>
 

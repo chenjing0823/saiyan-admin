@@ -12,10 +12,19 @@
  </div>
 </template>
 
+<script>
 // <script lang="ts" setup>
 
 // import { ref } from "vue"
 // const input = ref('')
+
+export default {
+  data () {
+    return {
+      input: ''
+    }
+  }
+}
 
 // </script>
 ```
@@ -33,10 +42,19 @@
  </div>
 </template>
 
+<script>
 // <script lang="ts" setup>
 
 // import { ref } from "vue"
 // const input = ref('')
+
+export default {
+  data () {
+    return {
+      input: ''
+    }
+  }
+}
 
 // </script>
 ```
@@ -54,10 +72,19 @@
  </div>
 </template>
 
+<script>
 // <script lang="ts" setup>
 
 // import { ref } from "vue"
 // const input = ref('')
+
+export default {
+  data () {
+    return {
+      input: ''
+    }
+  }
+}
 
 // </script>
 ```
