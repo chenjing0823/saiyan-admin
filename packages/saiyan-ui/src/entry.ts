@@ -3,6 +3,7 @@ import { Button } from "./button";
 import { Input } from "./input";
 import { Popover } from "./popover";
 import { Tooltips } from "./tooltips";
+import { Date } from "./date";
 import SFCButton from "./SFCButton.vue";
 import JSXButton from "./JSXButton";
 import "uno.css";
@@ -18,6 +19,7 @@ export default {
     app.component(Input.name, Input);
     app.component(Popover.name, Popover);
     app.component(Tooltips.name, Tooltips);
+    app.component(Date.name, Date);
     app.component(SFCButton.name, SFCButton);
     app.component(JSXButton.name, JSXButton);
   },

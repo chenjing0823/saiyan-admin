@@ -6,6 +6,9 @@
   <div class="box">
     <popover></popover>
   </div>
+  <div class="box">
+    <s-date></s-date>
+  </div>
   <s-tooltips></s-tooltips>
 </template>
 
