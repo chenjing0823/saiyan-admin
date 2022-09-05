@@ -52,6 +52,7 @@
     "eslint-plugin-vue": "^9.3.0",
     "execa": "^6.1.0",
     "fs-extra": "^10.1.0",
+    "markdown-it-container": "^3.0.0",
     "prettier": "^2.7.1",
     "unocss": "0.45.6",
     "vue": "3.2.37"
