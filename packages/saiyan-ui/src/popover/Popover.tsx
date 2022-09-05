@@ -33,6 +33,7 @@ export default defineComponent({
   props,
   setup(props, ctx) {
     const visible = ref(false);
+    const thisEl = ref(null);
     const { slots } = ctx;
 
     const position = ref("");
@@ -52,7 +53,10 @@ export default defineComponent({
     onBeforeUnmount(() => {
       document.removeEventListener("click", handleClick);
     });
-    const handleClick = () => {
+    const handleClick = (event: Event) => {
+      if (!thisEl.value || thisEl.value.contains(event.target)) {
+        return;
+      }
       visible.value = false;
     };
 
@@ -86,7 +90,7 @@ export default defineComponent({
       return attr[attrName];
     };
 
-    const heightWidth = (event: Event) => {
+    const positionFix = (event: Event) => {
       const width = (event.currentTarget as HTMLElement).offsetWidth;
       const height = (event.currentTarget as HTMLElement).offsetHeight;
       // console.log(width, height);
@@ -94,6 +98,7 @@ export default defineComponent({
       //   event.currentTarget as HTMLElement
       // ).getBoundingClientRect(); // Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置
       const domrect = getPoint(event.currentTarget as HTMLElement);
+      thisEl.value = event.currentTarget as HTMLElement;
       const bodyheight = getSizeAttr(".s-popper__body", "height");
       const bodywidth = getSizeAttr(".s-popper__body", "width");
       const { placement } = props;
@@ -101,7 +106,6 @@ export default defineComponent({
         position.value = `top:${domrect.top - bodyheight}px;left:${
           domrect.left
         }px`;
-        console.log(position.value);
       } else if (placement === "right") {
         let right = domrect.left + width; // 点击元素距离body左边的距离 - 弹出框的宽度
         position.value = `left: ${right}px;top: ${domrect.top}px;`;
@@ -119,7 +123,7 @@ export default defineComponent({
     };
     const onPopperMouseEnter = (event: Event) => {
       if (props.trigger !== "hover") return;
-      heightWidth(event);
+      positionFix(event);
       visible.value = true;
     };
     const onPopperMouseleave = () => {
@@ -129,10 +133,10 @@ export default defineComponent({
     const onPopperClick = (event: Event) => {
       if (props.trigger === "click") {
         visible.value = !visible.value;
-        heightWidth(event);
-        event.stopPropagation();
+        positionFix(event);
+        // event.stopPropagation();
       } else if (props.trigger === "manual") {
-        heightWidth(event);
+        positionFix(event);
       }
     };
 
