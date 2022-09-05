@@ -24,6 +24,7 @@ export default {
   },
 
   setup(props, ctx) {
+    console.log(props, ctx);
     const tooltips = ref(null);
     const show = ref(true);
     onMounted(() => {
