@@ -1,12 +1,12 @@
-import Popper from "./Popper";
+import Popover from "./Popover";
 import { App } from "vue";
 
 // 导出Button组件
-export { Popper };
+export { Popover };
 
 // 导出Vue插件
 export default {
   install(app: App) {
-    app.component(Popper.name, Popper);
+    app.component(Popover.name, Popover);
   },
 };
