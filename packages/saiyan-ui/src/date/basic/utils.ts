@@ -96,3 +96,15 @@ export const nextMonth = function (date) {
     ? changeYearMonthAndClampDate(date, year + 1, 0)
     : changeYearMonthAndClampDate(date, year, month + 1);
 };
+
+export const prevYear = function (date, amount = 1) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  return changeYearMonthAndClampDate(date, year - amount, month);
+};
+
+export const nextYear = function (date, amount = 1) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  return changeYearMonthAndClampDate(date, year + amount, month);
+};

@@ -66,6 +66,10 @@ const safelist = [
     "share",
     "clear",
   ].map((v) => `i-ic-baseline-${v}`),
+  "i-ic-outline-keyboard-arrow-left",
+  "i-ic-outline-keyboard-double-arrow-left",
+  "i-ic-outline-keyboard-arrow-right",
+  "i-ic-outline-keyboard-double-arrow-right",
 ];
 
 export default () =>

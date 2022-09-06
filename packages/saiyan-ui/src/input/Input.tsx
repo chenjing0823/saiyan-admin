@@ -31,6 +31,7 @@ export default defineComponent({
   name: "SInput",
   props,
   emits: [
+    "clear",
     "change",
     "input",
     "focus",
@@ -62,11 +63,14 @@ export default defineComponent({
     const focus = ref<Boolean>(false);
     const mouse = ref<Boolean>(false);
 
+    const iconFocus = ref<Boolean>(false);
+
     const showClear = computed(() => {
       if (props.clearable) {
         return !!(
           (props.modelValue && focus.value) ||
-          (props.modelValue && mouse.value)
+          (props.modelValue && mouse.value) ||
+          (props.modelValue && iconFocus.value)
         );
       } else {
         return false;
@@ -88,6 +92,7 @@ export default defineComponent({
     const handleClear = (event: Event) => {
       event.preventDefault();
       ctx.emit("update:modelValue", "");
+      ctx.emit("clear");
     };
 
     const handleFocus = (event: Event) => {
@@ -103,8 +108,16 @@ export default defineComponent({
       ctx.emit("mousein", event);
     };
     const handleMouseout = (event: Event) => {
-      mouse.value = false;
-      ctx.emit("mouseout", event);
+      setTimeout(() => {
+        mouse.value = false;
+        ctx.emit("mouseout", event);
+      }, 500);
+    };
+    const handleMouseenterIcon = (event: Event) => {
+      iconFocus.value = true;
+    };
+    const handleMouseoutIcon = (event: Event) => {
+      iconFocus.value = false;
     };
     // console.log(`html`, document.querySelector(`#app`)?.innerHTML);
 
@@ -144,6 +157,8 @@ export default defineComponent({
               size[props.size].t
             }`}
             onMousedown={handleClear}
+            onMouseenter={handleMouseenterIcon}
+            onMouseout={handleMouseoutIcon}
           >
             <i class={`i-ic-baseline-clear px-3 color-gray-500`}></i>
           </span>

@@ -7,6 +7,7 @@ const sidebar = {
       { text: 'Button 按钮', link: '/components/button/' },
       { text: 'Input 输入框', link: '/components/input/' },
       { text: 'Popover 弹出框', link: '/components/popover/' },
+      { text: 'DatePicker 日期选择器', link: '/components/datepicker/' },
      ]
     }
    ]

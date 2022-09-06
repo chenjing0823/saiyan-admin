@@ -25,6 +25,10 @@ export const props = {
     type: String,
     default: "这里是内容",
   },
+  closePopover: {
+    type: Boolean,
+    default: false,
+  },
 } as const;
 
 export default defineComponent({
@@ -34,6 +38,7 @@ export default defineComponent({
   setup(props, ctx) {
     const visible = ref(false);
     const thisEl = ref(null);
+    const thisPopEl = ref(null);
     const { slots } = ctx;
 
     const position = ref("");
@@ -54,9 +59,20 @@ export default defineComponent({
       document.removeEventListener("click", handleClick);
     });
     const handleClick = (event: Event) => {
-      if (!thisEl.value || thisEl.value.contains(event.target)) {
+      // console.log(event.target);
+      if (props.closePopover) {
+        thisPopEl.value = null;
+        visible.value = false;
+      }
+      if (
+        !thisEl.value ||
+        thisEl.value.contains(event.target) ||
+        !thisPopEl.value ||
+        thisPopEl.value.contains(event.target)
+      ) {
         return;
       }
+      thisPopEl.value = null;
       visible.value = false;
     };
 
@@ -134,6 +150,8 @@ export default defineComponent({
       if (props.trigger === "click") {
         visible.value = !visible.value;
         positionFix(event);
+
+        thisPopEl.value = document.querySelector(".s-popper__body_content");
         // event.stopPropagation();
       } else if (props.trigger === "manual") {
         positionFix(event);

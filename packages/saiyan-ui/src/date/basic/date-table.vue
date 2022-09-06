@@ -1,17 +1,19 @@
 <template>
   <table
+    class="saiyan-date-table"
     cellspacing="0"
     cellpadding="0"
     @click="handleClick"
-    @mousemove="handleMouseMove"
   >
     <tbody>
       <tr>
-        <th class="cell" v-for="(week, key) in WEEKS" :key="key">{{ week }}</th>
+        <th class="thcell" v-for="(week, key) in WEEKS" :key="key">
+          {{ week }}
+        </th>
       </tr>
       <tr v-for="(row, key) in rows" :key="key">
         <td :class="getCellClasses(cell)" v-for="(cell, key) in row" :key="key">
-          <span>{{ cell.text }}</span>
+          {{ cell.text }}
         </td>
       </tr>
     </tbody>
@@ -19,7 +21,7 @@
 </template>
 
 <script lang="ts">
-const _WEEKS = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"];
+const _WEEKS = ["一", "二", "三", "四", "五", "六", "日"];
 const getDateTimestamp = function (time) {
   if (typeof time === "number" || typeof time === "string") {
     return _clearTime(new Date(time)).getTime();
@@ -36,6 +38,7 @@ import {
   getDayCountOfMonth,
   getWeekNumber,
   nextDate,
+  isDate,
   clearTime as _clearTime,
 } from "./utils";
 export default {
@@ -62,6 +65,17 @@ export default {
       type: String,
       default: "day",
     },
+    defaultValue: {
+      type: Date,
+      validator(val) {
+        // either: null, valid Date object, Array of valid Date objects
+        return (
+          val === null ||
+          isDate(val) ||
+          (Array.isArray(val) && val.every(isDate))
+        );
+      },
+    },
   },
   setup(props, ctx) {
     const tableRows = [[], [], [], [], [], []];
@@ -81,6 +95,15 @@ export default {
     const startDate = computed(() => {
       return getStartDateOfMonth(thisYear.value, thisMonth.value);
     });
+
+    const cellMatchesDate = (cell, date) => {
+      const value = new Date(date);
+      return (
+        thisYear.value === value.getFullYear() &&
+        thisMonth.value === value.getMonth() &&
+        Number(cell.text) === value.getDate()
+      );
+    };
 
     const getDateOfCell = (row, column) => {
       const offsetFromStart =
@@ -108,9 +131,6 @@ export default {
       if (props.selectionMode === "day") {
         ctx.emit("pick", newDate);
       }
-      // console.log(e);
-    };
-    const handleMouseMove = (e: MouseEvent) => {
       // console.log(e);
     };
     const WEEKS = computed(() => {
@@ -210,7 +230,12 @@ export default {
     });
 
     const getCellClasses = (cell) => {
-      let classes = [];
+      const defaultValue = props.defaultValue
+        ? Array.isArray(props.defaultValue)
+          ? props.defaultValue
+          : [props.defaultValue]
+        : [];
+      let classes = ["cell"];
       if (cell.type === "normal") {
         classes.push("normal");
       } else if (cell.type === "today") {
@@ -222,11 +247,16 @@ export default {
       } else if (cell.type === "week") {
         classes.push("week");
       }
+      if (
+        cell.type === "normal" &&
+        defaultValue.some((date) => cellMatchesDate(cell, date))
+      ) {
+        classes.push("default");
+      }
       return classes.join(" ");
     };
     return {
       handleClick,
-      handleMouseMove,
       WEEKS,
       thisYear,
       thisMonth,
@@ -239,14 +269,49 @@ export default {
 </script>
 
 <style>
-.cell {
-  padding: 0 5px;
-}
 .next-month,
 .prev-month {
   color: #c0c4cc;
 }
 .today {
   color: #409eff;
+}
+.saiyan-date-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 12px;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.thcell {
+  padding: 5px;
+  color: #606266;
+  font-weight: 400;
+  border-bottom: 1px solid #ebeef5;
+}
+.cell {
+  width: 42px;
+  height: 30px;
+  padding: 4px 0;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+.default {
+  background-color: #409eff;
+  color: #fff;
+}
+tr:nth-child(2n) {
+  background-color: unset;
+}
+tr {
+  border-top: unset;
+}
+th,
+td {
+  border: unset;
 }
 </style>

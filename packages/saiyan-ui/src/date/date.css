@@ -1,0 +1,10 @@
+.s-popper__body_content-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.s-popper__body_content-title-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
