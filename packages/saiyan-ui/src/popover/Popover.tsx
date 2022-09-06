@@ -59,16 +59,13 @@ export default defineComponent({
       document.removeEventListener("click", handleClick);
     });
     const handleClick = (event: Event) => {
-      // console.log(event.target);
       if (props.closePopover) {
         thisPopEl.value = null;
         visible.value = false;
       }
       if (
-        !thisEl.value ||
-        thisEl.value.contains(event.target) ||
-        !thisPopEl.value ||
-        thisPopEl.value.contains(event.target)
+        (thisEl.value && thisEl.value.contains(event.target)) ||
+        (thisPopEl.value && thisPopEl.value.contains(event.target))
       ) {
         return;
       }
@@ -152,6 +149,7 @@ export default defineComponent({
         positionFix(event);
 
         thisPopEl.value = document.querySelector(".s-popper__body_content");
+        console.log(thisPopEl.value);
         // event.stopPropagation();
       } else if (props.trigger === "manual") {
         positionFix(event);
