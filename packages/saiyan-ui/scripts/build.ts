@@ -1,18 +1,13 @@
 import * as fs from "fs-extra";
 import * as path from "path";
-import { config } from "../vite.config";
+// import { config } from "../vite.config";
 import { build, InlineConfig, defineConfig, UserConfig } from "vite";
+import config from "../vite.config";
 // import { execa } from "execa";
 const buildAll = async () => {
-  // const inline: InlineConfig =
-  //   viteConfig;
-
   // 全量打包
-  await build(defineConfig(config as UserConfig) as InlineConfig);
-  // await build(defineConfig({}))
 
-  // const files = ["package.json", "README.md"];
-  // await Promise.all(files.map((file) => execa("cp", [file, "./dist"])));
+  await build();
 
   const srcDir = path.resolve(__dirname, "../src/");
   fs.readdirSync(srcDir)
@@ -35,13 +30,17 @@ const buildAll = async () => {
           entry: path.resolve(srcDir, name),
           name, // 导出模块名
           fileName: `index`,
-          formats: [`es`, `umd`],
+          formats: [`esm`, `umd`],
         },
         outDir,
       };
 
-      const _config = Object.assign({}, config, { build: custom });
-      await build(defineConfig(_config as UserConfig) as InlineConfig);
+      // const _config = Object.assign({}, config, { build: custom });
+      // await build(defineConfig(_config as UserConfig) as InlineConfig);
+
+      await build({
+        build: custom,
+      } as InlineConfig);
 
       // 为每个子组件包定制一个自己的 package.json
       fs.outputFile(

@@ -1,32 +1,25 @@
 /// <reference types="vitest" />
-import { defineConfig, UserConfig } from "vite";
+import { defineConfig, Plugin_2 } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 // import Unocss from "unocss/vite";
 import Unocss from "./config/unocss";
+import { UserConfig } from "vitest";
 
 // import copy from "rollup-plugin-copy";
 // https://vitejs.dev/config/
 
 export const config = {
   plugins: [
-    vue(),
-    vueJsx(),
+    vue() as Plugin_2,
+    vueJsx() as Plugin_2,
     // 添加UnoCSS插件
-    Unocss(),
-
-    // copy({
-    //   targets: [
-    //     { src: "package.json", dest: "dist" },
-    //     { src: "README.md", dest: "dist" },
-    //   ],
-    //   hook: "writeBundle",
-    // }),
+    Unocss() as Plugin_2[],
   ],
 
   build: {
     rollupOptions: {
-      external: ["vue", "vue-router"],
+      external: ["vue"],
       output: {
         assetFileNames: "[name].[ext]",
         exports: "named",
@@ -64,6 +57,6 @@ export const config = {
       reporter: ["text", "json", "html"],
     },
   },
-} as UserConfig;
+};
 
 export default defineConfig(config as UserConfig);
